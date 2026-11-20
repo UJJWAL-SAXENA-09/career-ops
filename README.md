@@ -209,6 +209,8 @@ It reformulates your CV; it must never fabricate it. A check in code stops a PDF
 
 ## Quick Start
 
+To use the code in this repository, follow the manual clone instructions below. The npm installer uses the upstream published release.
+
 **Fastest way, one command:**
 
 ```bash
@@ -232,7 +234,7 @@ claude   # or codex / qwen / opencode / agy / grok — open your AI CLI here
 <summary><b>Prefer to set it up manually? (git clone)</b></summary>
 
 ```bash
-git clone https://github.com/career-ops-hq/career-ops.git
+git clone https://github.com/UJJWAL-SAXENA-09/career-ops.git
 cd career-ops && npm install
 npx playwright install chromium   # only needed for PDF generation
 # On a non-Debian/Ubuntu Linux distro (Fedora, Arch, ...), Chromium's system
@@ -258,6 +260,16 @@ claude   # or codex / opencode / qwen / agy / grok
 LinkedIn job alerts: paste the email. No Google account. See [docs/LINKEDIN_JOBS.md](docs/LINKEDIN_JOBS.md).
 
 </details>
+
+### Check an existing checkout
+
+After installing dependencies, check the local setup before starting an evaluation:
+
+```bash
+node doctor.mjs --json
+```
+
+This reports missing setup files and prerequisites without creating a profile or changing the tracker. If `onboardingNeeded` is true, open your AI CLI in the repository and complete onboarding before running career workflows. A `dataRootError` must be resolved before onboarding. See [docs/SETUP.md](docs/SETUP.md) for the full setup guide.
 
 ### Global install
 
