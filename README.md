@@ -462,7 +462,7 @@ career-ops/
 ├── config/
 │   └── profile.example.yml      # Template for your profile
 ├── modes/                       # Skill modes
-│   ├── _shared.md               # Shared context (system file; local edit kept unless apply --force)
+│   ├── _shared.md               # Shared system context
 │   ├── _profile.md              # Your archetypes and framing (customize this)
 │   ├── oferta.md                # Single evaluation
 │   ├── pdf.md                   # PDF generation
@@ -486,6 +486,19 @@ career-ops/
 ├── docs/                        # Setup, customization, budget guide, architecture
 └── examples/                    # Sample CV, report, proof points
 ```
+
+### Where to customize
+
+Keep personal settings in the user layer so system updates preserve them:
+
+| Change | File |
+|---|---|
+| Candidate details and location or compensation preferences | `config/profile.yml` |
+| Target roles, archetypes, and positioning | `modes/_profile.md` |
+| Workflow preferences and standing instructions | `modes/_custom.md` |
+| Companies, job-title filters, and search locations | `portals.yml` |
+
+Onboarding creates the relevant files. Ask your AI CLI to update these settings, or edit them after setup. Keep personal facts and preferences out of `modes/_shared.md`; it is a system file. See [DATA_CONTRACT.md](DATA_CONTRACT.md) for the complete file ownership rules.
 
 ## External Data Directory (Optional)
 
