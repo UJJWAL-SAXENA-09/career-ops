@@ -531,6 +531,17 @@ Run `node doctor.mjs --json` and check `data_root` before using an external fold
 Selecting a data folder changes where files are read and written; it does not move existing CVs, tracker entries, or generated documents. Copy the user-layer files into the intended folder before continuing with an existing profile. If the report contains `dataRootError`, choose a folder outside the managed plugin install before onboarding. See [DATA_CONTRACT.md](DATA_CONTRACT.md) for the user-layer file list.
 
 
+### Back up your local data
+
+Ignored profile files and application documents stay on your machine when you push the code to GitHub. Preview a local backup, then copy the supported user-layer files to a folder you choose:
+
+```bash
+node backup.mjs --dest ../career-ops-backup --dry-run
+node backup.mjs --dest ../career-ops-backup
+```
+
+Choose a destination outside both the checkout and your data root, and review the preview before copying. `.env` files and contact exports are excluded by default. See [docs/BACKUP_STRATEGIES.md](docs/BACKUP_STRATEGIES.md) for exclusions, cloud destinations, and restoring your data.
+
 ## Tech Stack
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)
