@@ -511,7 +511,7 @@ To separate your personal data from the code (making it easier to switch branche
    export CAREER_OPS_ROOT=~/my-career-data
    ```
 2. **Marker File:** Create a `.career-ops-data` file in the repository root containing the path to your data directory.
-3. **Default:** Defaults to the repository root.
+3. **Default:** Uses the repository root for a checkout, or `~/career-ops-data` when running from a managed Claude Code plugin install.
 
 Once resolved, all user files are resolved and written relative to that folder, while prompt files and scripts continue to resolve relative to the repository. 
 
@@ -523,6 +523,12 @@ Once resolved, all user files are resolved and written relative to that folder, 
 - **Code layer stays put:** `node_modules/`, `providers/`, `modes/` and the scripts themselves always resolve against the repository, never the data root.
 
 The Go dashboard TUI, Node.js scripts, and AI agent modes all automatically respect this resolution hierarchy.
+
+### Verify the selected data folder
+
+Run `node doctor.mjs --json` and check `data_root` before using an external folder. Environment overrides take precedence over `.career-ops-data`, so changing the marker does not replace an active override.
+
+Selecting a data folder changes where files are read and written; it does not move existing CVs, tracker entries, or generated documents. Copy the user-layer files into the intended folder before continuing with an existing profile. If the report contains `dataRootError`, choose a folder outside the managed plugin install before onboarding. See [DATA_CONTRACT.md](DATA_CONTRACT.md) for the user-layer file list.
 
 
 ## Tech Stack
