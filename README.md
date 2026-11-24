@@ -448,6 +448,17 @@ Features: 10 filter tabs, 8 sort modes, grouped/flat view, lazy-loaded previews,
 
 There is also an **experimental web UI** (alpha and opt-in: nothing runs unless you start it): see [`web/README.md`](web/README.md).
 
+### Start the local web UI
+
+Install its dependencies once, then start the launcher from the repository root:
+
+```bash
+npm --prefix web ci
+npm run ui
+```
+
+The default address is `http://127.0.0.1:3000`. To use another port and open the browser yourself, run `npm run ui -- --port=3001 --no-open`. Stop the server with Ctrl+C. Run `npm run ui -- --help` for launcher options; see [web/README.md](web/README.md) for the UI requirements and configuration.
+
 ## Project Structure
 
 ```
