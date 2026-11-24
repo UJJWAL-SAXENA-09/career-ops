@@ -427,6 +427,16 @@ The scanner comes with **180+ companies** ready to scan and **40+ search queries
 
 Keep the list current: `portals.yml` is designed to stay live, not be a one-time setup file. See [Keeping portals.yml live](docs/KEEPING_PORTALS_LIVE.md) for the house rule that adds new companies automatically and the commands to validate the file after every change.
 
+### Validate portal changes
+
+After changing your portal configuration, run the local schema checks:
+
+```bash
+npm run validate:portals
+```
+
+This reads `portals.yml` from the configured data root. To check the shipped example instead, use `npm run validate:portals -- --file templates/portals.example.yml`. For live board reachability, use `npm run verify:portals`; for provider coverage and the content returned by each board, use `node audit-portals.mjs`. See [docs/KEEPING_PORTALS_LIVE.md](docs/KEEPING_PORTALS_LIVE.md) for the full maintenance workflow.
+
 By default `node scan.mjs` (a.k.a. `npm run scan`) trusts what each ATS feed returns. Some companies leave stale postings in their public API even after the role is closed, so those expired entries can leak into `pipeline.md`. Pass `--verify` to launch Playwright after the API pass and drop expired postings before they hit the pipeline:
 
 ```bash
